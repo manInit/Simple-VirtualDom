@@ -7,17 +7,15 @@ import { arrMove } from '../../utils';
 class Slider {
   classes = ['active', 'next-1', 'next-2', 'prev-2', 'prev-1'];
   
-  constructor(root, imageUrls) {
+  constructor(imageUrls) {
     this.imageUrls = imageUrls;
   }
 
   moveSlidesRight() {
-    console.log(this.classes)
     this.classes = arrMove(1, this.classes);
   }
 
   moveSlidesLeft() {
-    console.log(this.classes)
     this.classes = arrMove(-1, this.classes);
   }
 
