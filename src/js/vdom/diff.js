@@ -1,5 +1,6 @@
 import { render } from './render';
 
+
 const diffAttrs = (oldAttrs, newAttrs) => {
     const patches = [];
 
@@ -56,42 +57,42 @@ const diffChildren = (oldChildren, newChildren) => {
 }
 
 const diff = (oldVTree, newVTree) => {
-    if (newVTree === undefined) {
-        return node => {
-            node.remove();
-            return undefined;
-        }
-    }
-
-    if (typeof newVTree === 'string' || typeof oldVTree === 'string') {
-        if (newVTree !== oldVTree) {
-            return node => {
-                const newNode = render(newVTree);
-                node.replaceWith(newNode);
-                return newNode;
-            };
-        } else {
-            return node => node;
-        }
-    }
-
-    if (oldVTree.tagName !== newVTree.tagName) {
-        return node => {
-            const newNode = render(newVTree);
-            node.replaceWith(newNode);
-            return newNode;
-        };
-    }
-
-    const patchAttrs = diffAttrs(oldVTree.attrs, newVTree.attrs);
-    const patchChildren = diffChildren(oldVTree.children, newVTree.children);
-
-
+  if (newVTree === undefined) {
     return node => {
-        patchAttrs(node);
-        patchChildren(node);
-        return node;
+      node.remove();
+      return undefined;
     }
+  }
+
+  if (typeof newVTree === 'string' || typeof oldVTree === 'string') {
+    if (newVTree !== oldVTree) {
+      return node => {
+        const newNode = render(newVTree);
+        node.replaceWith(newNode);
+        return newNode;
+      };
+    } else {
+      return node => node;
+    }
+  }
+
+  if (oldVTree.tagName !== newVTree.tagName) {
+      return node => {
+        const newNode = render(newVTree);
+        node.replaceWith(newNode);
+        return newNode;
+      };
+  }
+
+  const patchAttrs = diffAttrs(oldVTree.attrs, newVTree.attrs);
+  const patchChildren = diffChildren(oldVTree.children, newVTree.children);
+
+
+  return node => {
+    patchAttrs(node);
+    patchChildren(node);
+    return node;
+  }
 }
 
 export { diff };
