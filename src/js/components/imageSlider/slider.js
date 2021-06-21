@@ -11,6 +11,10 @@ class Slider {
     this.imageUrls = imageUrls;
   }
 
+  getNumberActiveSlide() {
+    return this.classes.findIndex(elem => elem === 'active');
+  }
+
   moveSlidesRight() {
     this.classes = arrMove(1, this.classes);
   }
@@ -26,7 +30,7 @@ class Slider {
       },
       children: [
         slidesList(this.imageUrls, this.classes),
-        pagination(this.imageUrls.length),
+        pagination(this.imageUrls.length, this.getNumberActiveSlide()),
         btnControl(this.moveSlidesRight.bind(this), true),
         btnControl(this.moveSlidesLeft.bind(this), false),
       ]
