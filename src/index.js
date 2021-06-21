@@ -1,8 +1,8 @@
 import { mount, render } from './js/vdom';
 import { root } from './js/components/root';
-import { imageSlider } from './js/components/imageSlider';
+import { slider } from './js/components/imageSlider';
 
-const VSlider = imageSlider();
+const VSlider = slider(['1', '2']);
 const vRootElem = root([VSlider]);
 
 const app = render(vRootElem);
