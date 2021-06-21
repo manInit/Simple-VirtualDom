@@ -1,4 +1,6 @@
-export default (node, target) => {
+const mount = (node, target) => {
     target.replaceWith(node);
     return node;
 }
+
+export { mount }

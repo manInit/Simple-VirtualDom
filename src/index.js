@@ -1,7 +1,4 @@
-import render from './js/vdom/render';
-import createElement from './js/vdom/createElement';
-import mount from './js/vdom/mount';
-import diff from './js/vdom/diff';
+import { createElement, diff, mount, render } from './js/vdom';
 
 const createApp = count => createElement('div', {
   attrs: {

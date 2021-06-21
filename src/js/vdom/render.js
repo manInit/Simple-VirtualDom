@@ -19,4 +19,4 @@ const render = vNode => {
     return renderElem(vNode);
 }
 
-export default render;
+export { render };

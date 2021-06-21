@@ -1,4 +1,4 @@
-import render from './render';
+import { render } from './render';
 
 const diffAttrs = (oldAttrs, newAttrs) => {
     const patches = [];
@@ -94,4 +94,4 @@ const diff = (oldVTree, newVTree) => {
     }
 }
 
-export default diff;
+export { diff };

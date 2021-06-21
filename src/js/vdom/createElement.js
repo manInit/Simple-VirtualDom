@@ -1,4 +1,8 @@
-export default (tagName, {attrs = {}, children = []} = {}) => {
+const createElement = (
+  tagName, {
+    attrs = {}, 
+    children = []
+  } = {}) => {
   const vElem = Object.create(null);
   
   Object.assign(vElem, {
@@ -8,4 +12,6 @@ export default (tagName, {attrs = {}, children = []} = {}) => {
   });
 
   return vElem;
-};
+}
+
+export { createElement }
