@@ -11,7 +11,7 @@ const diffAttrs = (oldAttrs, newAttrs) => {
     }
     
     for (const k of Object.keys(oldAttrs)) {
-        if (!(k in Object.keys(newAttrs))) {
+        if (!Object.keys(newAttrs).includes(k)) {
             patches.push(node => {
                 node.removeAttribute(k);
                 return node;
