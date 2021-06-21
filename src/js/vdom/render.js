@@ -1,15 +1,23 @@
+const isEventProp = prop => prop.startsWith('on');
+const getEventName = propEventName => propEventName.slice(2).toLowerCase();
+
+const setProp = (propName, propValue, node) => {
+    if (isEventProp(propName)) node.addEventListener(getEventName(propName), propValue);
+    else node.setAttribute(propName, propValue);
+} 
+
 const renderElem = vNode => {
-    const vEl = document.createElement(vNode.tagName);
+    const el = document.createElement(vNode.tagName);
 
     for (const [k, v] of Object.entries(vNode.attrs)) {
-        vEl.setAttribute(k, v);
+        setProp(k, v, el);
     }
 
     for (const child of vNode.children) {
-        vEl.appendChild(render(child));
+        el.appendChild(render(child));
     }
 
-    return vEl;
+    return el;
 }
 
 const render = vNode => {
