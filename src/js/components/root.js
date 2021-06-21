@@ -1,5 +1,5 @@
 import { createElement } from "../vdom";
-import 'modern-normalize.css';
+import './reset.css';
 
 const root = children => createElement('div', {
   attrs: {
