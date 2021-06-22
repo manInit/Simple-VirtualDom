@@ -4,7 +4,7 @@ const bulletPagination = isActive => createElement('li', {
   attrs: {
     class: `slider__bullet ${isActive ? 'slider__bullet_active' : ''}`
   }
-})
+});
 
 const pagination = (countElements, activeIndex) => createElement('ul', {
   attrs: {

@@ -1,10 +1,4 @@
-const isEventProp = prop => prop.startsWith('on');
-const getEventName = propEventName => propEventName.slice(2).toLowerCase();
-
-const setProp = (propName, propValue, node) => {
-  if (isEventProp(propName)) node.addEventListener(getEventName(propName), propValue);
-  else node.setAttribute(propName, propValue);
-} 
+import { setProp } from './toggleProp'
 
 const renderElem = vNode => {
   const el = document.createElement(vNode.tagName);
