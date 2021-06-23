@@ -1,5 +1,5 @@
-import { mount, render, watchEffect, diff } from '../vdom';
 import { Slider } from '../components/imageSlider';
+import { mount } from '../vdom';
 import './reset.css';
 
 const urlImages = [
@@ -10,19 +10,5 @@ const urlImages = [
   'https://webstatic-sea.mihoyo.com/upload/event/2021/06/07/ed8f7007d0f94238d8e9818b64ab52fa_7052252726274558929.jpg'
 ];
 
-
 const slider = new Slider(urlImages);
-
-let vTree, rootNode;
-
-watchEffect(() => {
-  if (!rootNode) {
-    vTree = slider.getVSliderEl();
-    rootNode = mount(render(vTree), document.getElementById('root'));
-  } else {
-    let newVTree = slider.getVSliderEl();
-    const patch = diff(vTree, newVTree);
-    patch(rootNode);
-    vTree = newVTree;
-  }
-});
+mount(slider, document.getElementById('root'));
