@@ -3,7 +3,6 @@ import { setProp, removeProp, isEventProp } from './toggleProp';
 
 const diffAttrs = (oldAttrs, newAttrs) => {
   const patches = [];
-
   //removing all listeners prop
   for (const [k, v] of Object.entries(oldAttrs)) {
     if (isEventProp(k)) {

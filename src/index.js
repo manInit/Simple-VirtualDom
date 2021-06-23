@@ -1,4 +1,4 @@
-import { mount, render, reactive, watchEffect } from './js/vdom';
+import { mount, render, watchEffect, diff } from './js/vdom';
 import { Slider } from './js/components/imageSlider';
 import './js/components/reset.css';
 
@@ -10,29 +10,20 @@ const urlImages = [
   'https://webstatic-sea.mihoyo.com/upload/event/2021/06/07/ed8f7007d0f94238d8e9818b64ab52fa_7052252726274558929.jpg'
 ];
 
-let state = {
-  a: 1,
-  b: 2
-};
-
-state = reactive(state);
-watchEffect(() => console.log('a' + state.a));
-watchEffect(() => console.log('b' + state.b));
-
-setInterval(() => {
-  state.a++;
-}, 1000);
-
 
 const slider = new Slider(urlImages);
 // let vRootElem = root([slider.getVSliderEl()]);
 // let app = render(vRootElem);
-mount(render(slider.getVSliderEl()), document.getElementById('root'));
-
-// setInterval(() => {
-//   slider.moveSlidesLeft();
-//   const newVRootElem = root([slider.getVSliderEl()]);
-//   const patch = diff(vRootElem, newVRootElem);
-//   newRoot = patch(newRoot);
-//   vRootElem = newVRootElem
-// }, 1000)
+let vTree;
+let rootNode;
+watchEffect(() => {
+  if (!rootNode) {
+    vTree = slider.getVSliderEl();
+    rootNode = mount(render(vTree), document.getElementById('root'));
+  } else {
+    let newVTree = slider.getVSliderEl();
+    const patch = diff(vTree, newVTree);
+    patch(rootNode);
+    vTree = newVTree;
+  }
+});

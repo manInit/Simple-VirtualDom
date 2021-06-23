@@ -2,6 +2,7 @@ let activeEffect;
 
 const watchEffect = fn => {
   activeEffect = fn;
+  //call function/call getter prop
   fn();
   activeEffect = null;
 };

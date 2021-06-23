@@ -1,4 +1,4 @@
-import { createElement, reactive, watchEffect } from '../../vdom';
+import { createElement, reactive } from '../../vdom';
 import { slidesList } from './slidesList';
 import { pagination } from './pagination';
 import { btnControl } from './btnControl';
@@ -19,13 +19,11 @@ class Slider {
   }
 
   moveSlidesRight() {
-    this.state.classes = arrMove(1, this.classes);
-    console.log(this.state.classes);
+    this.state.classes = arrMove(1, this.state.classes);
   }
 
   moveSlidesLeft() {
-    this.state.classes = arrMove(-1, this.classes);
-    console.log(this.state.classes);
+    this.state.classes = arrMove(-1, this.state.classes);
   }
 
   getVSliderEl() {
