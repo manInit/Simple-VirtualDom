@@ -7,8 +7,8 @@ const setProp = (propName, propValue, node) => {
 };
 
 const removeProp = (propName, propValue, node) => {
-  if (isEventProp(propName)) node.removeEventListener(getEventName(propName), propValue)
+  if (isEventProp(propName)) node.removeEventListener(getEventName(propName), propValue);
   else node.removeAttribute(propName);
 };
 
-export { setProp, removeProp }
+export { setProp, removeProp };

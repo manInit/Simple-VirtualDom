@@ -14,6 +14,6 @@ const arrMove = (step, arr) => {
       movedArr.push(arr[i]);
   }
   return movedArr;
-} 
+};
 
-export { arrMove }
+export { arrMove };

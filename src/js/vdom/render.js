@@ -1,4 +1,4 @@
-import { setProp } from './toggleProp'
+import { setProp } from './toggleProp';
 
 const renderElem = vNode => {
   const el = document.createElement(vNode.tagName);
@@ -12,12 +12,12 @@ const renderElem = vNode => {
   }
 
   return el;
-}
+};
 
 const render = vNode => {
   if (typeof vNode === 'string') return document.createTextNode(vNode);
 
   return renderElem(vNode);
-}
+};
 
 export { render };

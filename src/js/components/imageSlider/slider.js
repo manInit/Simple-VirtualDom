@@ -1,7 +1,7 @@
 import { createElement } from '../../vdom';
 import { slidesList } from './slidesList';
 import { pagination } from './pagination';
-import { btnControl } from './btnControl'
+import { btnControl } from './btnControl';
 import { arrMove } from '../../utils';
 
 class Slider {
@@ -39,4 +39,4 @@ class Slider {
 
 }
 
-export { Slider }
+export { Slider };

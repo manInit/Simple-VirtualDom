@@ -13,4 +13,4 @@ const pagination = (countElements, activeIndex) => createElement('ul', {
   children: [...Array(countElements).keys()].map(index => bulletPagination(index === activeIndex))
 });
 
-export { pagination }
+export { pagination };

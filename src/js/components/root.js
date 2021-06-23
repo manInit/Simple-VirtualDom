@@ -8,4 +8,4 @@ const root = children => createElement('div', {
   children
 });
 
-export { root }
+export { root };

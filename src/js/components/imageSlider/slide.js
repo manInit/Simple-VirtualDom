@@ -16,4 +16,4 @@ const slide = (srcImage, positionClass) => createElement('li', {
   ]
 });
 
-export { slide }
+export { slide };

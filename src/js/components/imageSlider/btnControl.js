@@ -7,4 +7,4 @@ const btnControl = (handlerClick, isRight = false) => createElement('button', {
   }
 });
 
-export { btnControl }
+export { btnControl };

@@ -12,6 +12,6 @@ const createElement = (
   });
 
   return vElem;
-}
+};
 
-export { createElement }
+export { createElement };

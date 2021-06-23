@@ -1,5 +1,5 @@
 import { render } from './render';
-import { setProp, removeProp } from './toggleProp'
+import { setProp, removeProp } from './toggleProp';
 
 const diffAttrs = (oldAttrs, newAttrs) => {
   const patches = [];
@@ -19,7 +19,7 @@ const diffAttrs = (oldAttrs, newAttrs) => {
       patches.push(node => {
         removeProp(k, v, node);
         return node;
-      })
+      });
     }
   }
 
@@ -29,14 +29,14 @@ const diffAttrs = (oldAttrs, newAttrs) => {
     }
     return node;
   };
-}
+};
 
 const diffChildren = (oldChildren, newChildren) => {
   const childPatches = [];
 
   oldChildren.forEach((oldChild, i) => {
     childPatches.push(diff(oldChild, newChildren[i]));
-  })
+  });
 
   const additionalPatches = [];
   for (const additionalChild of newChildren.slice(oldChildren.length)) {
@@ -56,15 +56,15 @@ const diffChildren = (oldChildren, newChildren) => {
     }
 
     return parent;
-  }
-}
+  };
+};
 
 const diff = (oldVTree, newVTree) => {
   if (newVTree === undefined) {
     return node => {
       node.remove();
       return undefined;
-    }
+    };
   }
 
   if (typeof newVTree === 'string' || typeof oldVTree === 'string') {
@@ -95,7 +95,7 @@ const diff = (oldVTree, newVTree) => {
     patchAttrs(node);
     patchChildren(node);
     return node;
-  }
-}
+  };
+};
 
 export { diff };

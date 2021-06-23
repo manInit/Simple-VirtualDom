@@ -8,4 +8,4 @@ const slidesList = (urls, classes) => createElement('ul', {
   children: urls.map((url, index) => slide(url, classes[index]))
 });
 
-export { slidesList }
+export { slidesList };
