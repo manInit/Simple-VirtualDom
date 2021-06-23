@@ -12,7 +12,7 @@ And it works. We change only state slider and it update automatically
 
 ### examples
 made state reactivity. with patch dom on update state
-js```
+```js
 this.state = reactive(this.state);
     let vTree, rootNode;
     watchEffect(() => {
