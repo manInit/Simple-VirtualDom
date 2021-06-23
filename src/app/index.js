@@ -1,6 +1,6 @@
-import { mount, render, watchEffect, diff } from './js/vdom';
-import { Slider } from './js/components/imageSlider';
-import './js/components/reset.css';
+import { mount, render, watchEffect, diff } from '../vdom';
+import { Slider } from '../components/imageSlider';
+import './reset.css';
 
 const urlImages = [
   'https://webstatic-sea.mihoyo.com/upload/event/2021/06/08/457a8eb51ff9a08294e4cd89d53f8ea8_9165375142265154823.jpg',
@@ -12,10 +12,9 @@ const urlImages = [
 
 
 const slider = new Slider(urlImages);
-// let vRootElem = root([slider.getVSliderEl()]);
-// let app = render(vRootElem);
-let vTree;
-let rootNode;
+
+let vTree, rootNode;
+
 watchEffect(() => {
   if (!rootNode) {
     vTree = slider.getVSliderEl();
