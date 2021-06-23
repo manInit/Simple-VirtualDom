@@ -46,7 +46,7 @@ class Slider {
       },
       children: [
         slidesList(this.imageUrls, this.state.classes),
-        pagination(this.imageUrls.length, this.getNumberActiveSlide()),
+        pagination(this.imageUrls.length, this.getNumberActiveSlide(), this.state),
         btnControl(this.moveSlidesRight.bind(this), true),
         btnControl(this.moveSlidesLeft.bind(this), false),
       ]
