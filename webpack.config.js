@@ -16,29 +16,29 @@ const optimization = () => {
     splitChunks: {
       chunks: 'all'
     }
-  }
+  };
   //минифицировать файлы в prod режиме
   if (!isDev) {
     config.minimizer = [
       new OptimizeCssAssetsPlugin(),
       new TerserWebpackPlugin()
-    ]
+    ];
   }
 
   return config;
-}
+};
 
 const jsLoader = () => {
-  const loaders = ['babel-loader']
+  const loaders = ['babel-loader'];
   if (isDev) loaders.push('eslint-loader');
   return loaders;
-}
+};
 
 const styleLoader = (...extra) => {
   let loaders = [MiniCssExtractPlugin.loader, 'css-loader'];
   if (extra) loaders = loaders.concat(extra);
   return loaders;
-}
+};
 
 module.exports = {
   //где лежат исходники
@@ -117,4 +117,4 @@ module.exports = {
       }
     ]
   }
-}
+};

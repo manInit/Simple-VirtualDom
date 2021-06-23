@@ -1,26 +1,31 @@
-import { createElement } from '../../vdom';
+import { createElement, reactive, watchEffect } from '../../vdom';
 import { slidesList } from './slidesList';
 import { pagination } from './pagination';
 import { btnControl } from './btnControl';
 import { arrMove } from '../../utils';
 
 class Slider {
-  classes = ['active', 'next-1', 'next-2', 'prev-2', 'prev-1'];
+  state = {
+    classes: ['active', 'next-1', 'next-2', 'prev-2', 'prev-1']
+  };
   
   constructor(imageUrls) {
     this.imageUrls = imageUrls;
+    this.state = reactive(this.state);
   }
 
   getNumberActiveSlide() {
-    return this.classes.findIndex(elem => elem === 'active');
+    return this.state.classes.findIndex(elem => elem === 'active');
   }
 
   moveSlidesRight() {
-    this.classes = arrMove(1, this.classes);
+    this.state.classes = arrMove(1, this.classes);
+    console.log(this.state.classes);
   }
 
   moveSlidesLeft() {
-    this.classes = arrMove(-1, this.classes);
+    this.state.classes = arrMove(-1, this.classes);
+    console.log(this.state.classes);
   }
 
   getVSliderEl() {
@@ -29,7 +34,7 @@ class Slider {
         class: 'slider',
       },
       children: [
-        slidesList(this.imageUrls, this.classes),
+        slidesList(this.imageUrls, this.state.classes),
         pagination(this.imageUrls.length, this.getNumberActiveSlide()),
         btnControl(this.moveSlidesRight.bind(this), true),
         btnControl(this.moveSlidesLeft.bind(this), false),

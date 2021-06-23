@@ -1,4 +1,4 @@
-import { mount, render } from './js/vdom';
+import { mount, render, reactive, watchEffect } from './js/vdom';
 import { Slider } from './js/components/imageSlider';
 import './js/components/reset.css';
 
@@ -9,6 +9,19 @@ const urlImages = [
   'https://webstatic-sea.mihoyo.com/upload/event/2021/06/07/f92a5c7a6087d27df987f570281fb713_1620003236594776086.jpg',
   'https://webstatic-sea.mihoyo.com/upload/event/2021/06/07/ed8f7007d0f94238d8e9818b64ab52fa_7052252726274558929.jpg'
 ];
+
+let state = {
+  a: 1,
+  b: 2
+};
+
+state = reactive(state);
+watchEffect(() => console.log('a' + state.a));
+watchEffect(() => console.log('b' + state.b));
+
+setInterval(() => {
+  state.a++;
+}, 1000);
 
 
 const slider = new Slider(urlImages);
