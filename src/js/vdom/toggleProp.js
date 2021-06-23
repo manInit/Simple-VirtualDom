@@ -11,4 +11,4 @@ const removeProp = (propName, propValue, node) => {
   else node.removeAttribute(propName);
 };
 
-export { setProp, removeProp };
+export { setProp, removeProp, isEventProp };

@@ -1,14 +1,21 @@
 import { render } from './render';
-import { setProp, removeProp } from './toggleProp';
+import { setProp, removeProp, isEventProp } from './toggleProp';
 
 const diffAttrs = (oldAttrs, newAttrs) => {
   const patches = [];
 
+  //removing all listeners prop
+  for (const [k, v] of Object.entries(oldAttrs)) {
+    if (isEventProp(k)) {
+      patches.push(node => {
+        removeProp(k, v, node);
+        return node;
+      });
+    }
+  }
+
   for (const [k, v] of Object.entries(newAttrs)) {
     patches.push(node => {
-      //removing all listeners
-      //node.replaceWith(node.cloneNode(true));
-
       setProp(k, v, node);
       return node;
     });
