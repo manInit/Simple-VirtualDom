@@ -1,5 +1,5 @@
 import { Slider } from '../components/imageSlider';
-import { createElement, mount, render } from '../vdom';
+import { createElement, render } from '../vdom';
 import { Router } from '../routes';
 import './reset.css';
 
@@ -12,6 +12,7 @@ const urlImages = [
 ];
 
 const slider = new Slider(urlImages);
+
 const hello = createElement('div', {
   children: [
     'hello world',
@@ -31,5 +32,3 @@ const routes = {
 };
 
 Router.setRoutes(routes);
-
-mount(render(hello), document.getElementById('root'));
