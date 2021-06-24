@@ -65,7 +65,8 @@ module.exports = {
   optimization: optimization(),
   //автообновление браузера (складывает бандлы в оп)
   devServer: {
-    port: 4200
+    port: 4200,
+    historyApiFallback: true,
   },
   plugins: [
     //автоматическое подключение скриптов

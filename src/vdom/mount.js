@@ -1,5 +1,6 @@
 const mount = (node, target) => {
-  target.replaceWith(node);
+  target.innerHTML = '';
+  target.appendChild(node);
   return node;
 };
 

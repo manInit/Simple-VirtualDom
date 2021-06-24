@@ -1,5 +1,6 @@
 import { Slider } from '../components/imageSlider';
-import { mount } from '../vdom';
+import { createElement, mount, render } from '../vdom';
+import { Router } from '../routes';
 import './reset.css';
 
 const urlImages = [
@@ -11,4 +12,24 @@ const urlImages = [
 ];
 
 const slider = new Slider(urlImages);
-mount(slider, document.getElementById('root'));
+const hello = createElement('div', {
+  children: [
+    'hello world',
+    createElement('button', {
+      attrs: {
+        onClick: () => Router.changePath('/hello')
+      },
+      children: ['click']
+    })
+  ]
+});
+
+
+const routes = {
+  '/hello': slider,
+  '/': render(hello)
+};
+
+Router.setRoutes(routes);
+
+mount(render(hello), document.getElementById('root'));
