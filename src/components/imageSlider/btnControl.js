@@ -1,4 +1,4 @@
-import { createElement } from '../../vdom';
+import { createElement } from '../../library/vdom';
 
 const btnControl = (handlerClick, isRight = false) => createElement('button', {
   attrs: {

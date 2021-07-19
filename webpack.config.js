@@ -46,7 +46,7 @@ module.exports = {
   mode: 'development',
   //точки входа
   entry: {
-    main: './app/index.js',
+    main: './index.js',
     // analytics: './analytics.js'
   },
   output: {
@@ -71,7 +71,7 @@ module.exports = {
   plugins: [
     //автоматическое подключение скриптов
     new HTMLWebpackPlugin({
-      template: './app/index.html'
+      template: './index.html'
     }),
     new MiniCssExtractPlugin({
       filename: filename('.css')

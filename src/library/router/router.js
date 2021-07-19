@@ -6,7 +6,6 @@ class Router {
   static setRoutes(routes) {
     Router.routes = routes;
 
-
     const onChangePath = () => Router.changePath(window.location.pathname);   
     //firstly set path
     onChangePath();
@@ -19,7 +18,5 @@ class Router {
     mount(Router.routes[pathName], document.body);
   }
 }
-
-
 
 export { Router };

@@ -1,4 +1,4 @@
-import { createElement } from '../../vdom';
+import { createElement } from '../../library/vdom';
 
 const slideImage = src => createElement('img', {
   attrs: {

@@ -1,4 +1,4 @@
-import { createElement } from '../../vdom';
+import { createElement } from '../../library/vdom';
 import { slide } from './slide';
 
 const slidesList = (urls, classes) => createElement('ul', {

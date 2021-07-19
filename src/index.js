@@ -1,7 +1,7 @@
-import { Slider } from '../components/imageSlider';
-import { createElement, render } from '../vdom';
-import { Router } from '../routes';
-import './reset.css';
+import { Slider } from './components/imageSlider';
+import { createElement, render } from './library/vdom';
+import { Router } from './library/router';
+import './globalStyles/reset.css';
 
 const urlImages = [
   'https://webstatic-sea.mihoyo.com/upload/event/2021/06/08/457a8eb51ff9a08294e4cd89d53f8ea8_9165375142265154823.jpg',

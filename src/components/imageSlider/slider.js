@@ -1,4 +1,4 @@
-import { createElement, reactive, watchEffect, render, diff } from '../../vdom';
+import { createElement, reactive, watchEffect, render, diff } from '../../library/vdom';
 import { slidesList } from './slidesList';
 import { pagination } from './pagination';
 import { btnControl } from './btnControl';

@@ -96,7 +96,6 @@ const diff = (oldVTree, newVTree) => {
   const patchAttrs = diffAttrs(oldVTree.attrs, newVTree.attrs);
   const patchChildren = diffChildren(oldVTree.children, newVTree.children);
 
-
   return node => {
     patchAttrs(node);
     patchChildren(node);

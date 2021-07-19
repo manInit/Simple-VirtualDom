@@ -1,4 +1,4 @@
-import { createElement } from '../../vdom';
+import { createElement } from '../../library/vdom';
 import { arrMove } from '../../utils';
 
 const bulletPagination = (isActive, clickHandler) => createElement('li', {
