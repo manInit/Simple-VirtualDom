@@ -1,12 +1,7 @@
 import { render } from './render';
-import { reactive } from '../reactivity';
 
-const mount = (component, target) => {
-  const node = render(component.getVEl());
-
-  if (component.state) {
-    component.state = reactive(component.state, component, node);
-  }
+const mount = (vNode, target) => {
+  const node = render(vNode);
 
   target.innerHTML = '';
   target.appendChild(node);
