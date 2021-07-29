@@ -1,15 +1,16 @@
-import { createElement } from '../../library/vdom';
+import { BasicComponent, createElement } from '../../library/vdom';
 import { slidesList } from './slidesList';
 import { pagination } from './pagination';
 import { btnControl } from './btnControl';
 import { arrMove } from '../../utils';
 
-class Slider {
+class Slider extends BasicComponent {
   state = {
     classes: ['active', 'next-1', 'next-2', 'prev-2', 'prev-1']
   };
   
   constructor(imageUrls) {
+    super();
     this.imageUrls = imageUrls;
   }
 
