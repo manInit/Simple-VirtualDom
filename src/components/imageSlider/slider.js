@@ -1,4 +1,4 @@
-import { createElement, reactive, watchEffect, render, diff } from '../../library/vdom';
+import { createElement } from '../../library/vdom';
 import { slidesList } from './slidesList';
 import { pagination } from './pagination';
 import { btnControl } from './btnControl';
@@ -11,24 +11,6 @@ class Slider {
   
   constructor(imageUrls) {
     this.imageUrls = imageUrls;
-    this.state = reactive(this.state);
-    let vTree, rootNode;
-    watchEffect(() => {
-      if (!rootNode) {
-        vTree = this.getVSliderEl();
-        rootNode = render(vTree);
-      } else {
-        let newVTree = this.getVSliderEl();
-        const patch = diff(vTree, newVTree);
-        patch(rootNode);
-        vTree = newVTree;
-      }
-    });
-    return rootNode;
-  }
-
-  getNumberActiveSlide() {
-    return this.state.classes.findIndex(elem => elem === 'active');
   }
 
   moveSlidesRight() {
@@ -39,14 +21,14 @@ class Slider {
     this.state.classes = arrMove(-1, this.state.classes);
   }
 
-  getVSliderEl() {
+  getVEl() {
     return createElement('div', {
       attrs: {
         class: 'slider',
       },
       children: [
         slidesList(this.imageUrls, this.state.classes),
-        pagination(this.imageUrls.length, this.getNumberActiveSlide(), this.state),
+        pagination(this.imageUrls.length, this.state),
         btnControl(this.moveSlidesRight.bind(this), true),
         btnControl(this.moveSlidesLeft.bind(this), false),
       ]

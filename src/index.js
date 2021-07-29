@@ -1,5 +1,5 @@
 import { Slider } from './components/imageSlider';
-import { createElement, render } from './library/vdom';
+import { createElement } from './library/vdom';
 import { Router } from './library/router';
 import './globalStyles/reset.css';
 
@@ -26,9 +26,9 @@ const hello = createElement('div', {
 });
 
 
+
 const routes = {
   '/hello': slider,
-  '/': render(hello)
 };
 
 Router.setRoutes(routes);

@@ -8,13 +8,21 @@ const bulletPagination = (isActive, clickHandler) => createElement('li', {
   }
 });
 
-const pagination = (countElements, activeIndex, state) => createElement('ul', {
-  attrs: {
-    class: 'slider__pagination'
-  },
-  children: [...Array(countElements).keys()].map(index => bulletPagination(index === activeIndex, () => {
+const pagination = (countElements, state) => {
+  const activeIndex = state.classes.findIndex(elem => elem === 'active');
+
+  const children = [...Array(countElements).keys()].map(index => bulletPagination(index === activeIndex, () => {
+    const activeIndex = state.classes.findIndex(elem => elem === 'active');
     state.classes = arrMove(index - activeIndex, state.classes);
-  }))
-});
+    console.log(state.classes);
+  }));
+
+  return createElement('ul', {
+    attrs: {
+      class: 'slider__pagination'
+    },
+    children
+  });
+};
 
 export { pagination };
