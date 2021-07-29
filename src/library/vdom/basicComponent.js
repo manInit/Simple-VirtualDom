@@ -1,0 +1,3 @@
+class BasicComponent {}
+
+export { BasicComponent };
