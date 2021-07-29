@@ -1,4 +1,4 @@
-import { mount } from "../vdom";
+import { mount } from '../vdom';
 
 class Router {
   static routes = null;
