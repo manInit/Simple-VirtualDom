@@ -5,6 +5,8 @@ import './globalStyles/reset.css';
 
 
 class TestComponent extends BasicComponent {
+  state = { count: 0 }
+
   constructor() {
     super();
 
@@ -15,22 +17,27 @@ class TestComponent extends BasicComponent {
       'https://webstatic-sea.mihoyo.com/upload/event/2021/06/07/f92a5c7a6087d27df987f570281fb713_1620003236594776086.jpg',
       'https://webstatic-sea.mihoyo.com/upload/event/2021/06/07/ed8f7007d0f94238d8e9818b64ab52fa_7052252726274558929.jpg'
     ];
+    this.slider = new Slider(this.urlImages);
   }
 
   getVEl() {
-    const slider = new Slider(this.urlImages);
+
     return createElement('section', {
       children: [
-       'hello',
-       createElement('h1', {children: 'test h1'}),
-       slider
-      ]
+       this.state.count.toString(),
+       createElement('span', {children: ['++'], attrs: {onClick: () => this.state.count++}}),
+       createElement('h1', {children: ['to main'], attrs: {
+         onClick: () => Router.changePath('/')
+         }}),
+       this.slider
+      ],
     });
   }
 }
 
 const routes = {
   '/hello': new TestComponent(),
+  '/': createElement('h1', {children: 'main page', attrs: {onClick: () => Router.changePath('/hello')}})
 };
 
 Router.setRoutes(routes);
