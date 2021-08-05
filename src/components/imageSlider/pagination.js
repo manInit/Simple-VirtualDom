@@ -14,7 +14,6 @@ const pagination = (countElements, state) => {
   const children = [...Array(countElements).keys()].map(index => bulletPagination(index === activeIndex, () => {
     const activeIndex = state.classes.findIndex(elem => elem === 'active');
     state.classes = arrMove(index - activeIndex, state.classes);
-    console.log(state.classes);
   }));
 
   return createElement('ul', {

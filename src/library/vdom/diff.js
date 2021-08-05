@@ -1,5 +1,6 @@
 import { render } from './render';
 import { setProp, removeProp, isEventProp } from './toggleProp';
+import { BasicComponent } from './basicComponent';
 
 const diffAttrs = (oldAttrs, newAttrs) => {
   const patches = [];
@@ -66,6 +67,9 @@ const diffChildren = (oldChildren, newChildren) => {
 };
 
 const diff = (oldVTree, newVTree) => {
+  if (oldVTree instanceof BasicComponent) oldVTree = oldVTree.getVEl();
+  if (newVTree instanceof BasicComponent) newVTree = newVTree.getVEl();
+
   if (newVTree === undefined) {
     return node => {
       node.remove();
