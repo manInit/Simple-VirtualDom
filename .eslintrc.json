@@ -6,7 +6,7 @@
     "node": true
   },
   "rules": {
-    "semi": ["error", "always"],
+    "semi": ["warn", "always"],
     "no-unused-vars": [
       "warn", { 
       "vars": "all" 
