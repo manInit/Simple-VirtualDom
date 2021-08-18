@@ -5,8 +5,6 @@ import './globalStyles/reset.css';
 
 
 class TestComponent extends BasicComponent {
-  state = { count: 0 }
-
   constructor() {
     super();
 
@@ -24,11 +22,6 @@ class TestComponent extends BasicComponent {
 
     return createElement('section', {
       children: [
-       this.state.count.toString(),
-       createElement('span', {children: ['++'], attrs: {onClick: () => this.state.count++}}),
-       createElement('h1', {children: ['to main'], attrs: {
-         onClick: () => Router.changePath('/')
-         }}),
        this.slider
       ],
     });
@@ -36,8 +29,7 @@ class TestComponent extends BasicComponent {
 }
 
 const routes = {
-  '/hello': new TestComponent(),
-  '/': createElement('h1', {children: 'main page', attrs: {onClick: () => Router.changePath('/hello')}})
+  '/':  new TestComponent())
 };
 
 Router.setRoutes(routes);
