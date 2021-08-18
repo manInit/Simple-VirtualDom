@@ -19,7 +19,6 @@ class TestComponent extends BasicComponent {
   }
 
   getVEl() {
-
     return createElement('section', {
       children: [
        this.slider
@@ -29,7 +28,7 @@ class TestComponent extends BasicComponent {
 }
 
 const routes = {
-  '/':  new TestComponent())
+  '/':  new TestComponent()
 };
 
 Router.setRoutes(routes);
