@@ -1,10 +1,11 @@
-import { diff } from '../vdom'
+import { diff } from '../vdom/index'
 import { Observer } from './Observer'
+import { BasicComponent } from '../vdom/BasicComponent'
 
-const updateDOMOnStateChange = (component, dom) => {
+const updateDOMOnStateChange = (component: BasicComponent, dom: HTMLElement) => {
   let vTree = component.getVEl()
 
-  return () => {
+  return (): void => {
     let newVTree = component.getVEl()
     const patch = diff(vTree, newVTree)
     patch(dom)
@@ -12,7 +13,7 @@ const updateDOMOnStateChange = (component, dom) => {
   }
 }
 
-const reactive = (obj, component, dom) => {
+const reactive = (obj: Record<string, any>, component: BasicComponent, dom: HTMLElement) => {
   const dep = new Observer()
   dep.addEffect(updateDOMOnStateChange(component, dom))
 

@@ -1,7 +1,7 @@
-import { Slider } from './components/imageSlider/index.js'
-import { BasicComponent, createElement } from './library/vdom/index.js'
-import { Router } from './library/router/index.js'
 import './globalStyles/reset.css'
+
+import { Slider } from './components/imageSlider/index'
+import { BasicComponent, createElement, mount } from './library/vdom/index'
 import { VirtualElem } from './library/vdom/VirtualElem.js'
 
 class TestComponent implements BasicComponent {
@@ -28,8 +28,4 @@ class TestComponent implements BasicComponent {
   }
 }
 
-const routes = {
-  '/':  new TestComponent()
-}
-
-Router.setRoutes(routes)
+mount(new TestComponent(), document.getElementById('root'))

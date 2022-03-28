@@ -1,6 +1,6 @@
 import { setProp } from './toggleProp'
 import { BasicComponent, isBasicComponent } from './BasicComponent'
-import { reactive } from '../reactivity/index.js'
+import { reactive } from '../reactivity/index'
 import { VirtualElem } from './VirtualElem'
 
 const renderElem = (vElem: VirtualElem): HTMLElement => {

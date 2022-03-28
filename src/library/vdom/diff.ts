@@ -43,7 +43,7 @@ const diffAttrs = (oldAttrs: Attributes, newAttrs: Attributes) => {
   }
 }
 
-const diffChildren = (oldChildren: VirtualElem[], newChildren: VirtualElem[]) => {
+const diffChildren = (oldChildren: Array<VirtualElem | BasicComponent>, newChildren: Array<VirtualElem | BasicComponent>) => {
   const childPatches: Array<(node: HTMLElement) => HTMLElement | void> = []
 
   for (const [index, child] of oldChildren.entries()) 
