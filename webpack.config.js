@@ -5,7 +5,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const webpackConfig = {
-  entry: './src/ts/index.ts',
+  entry: './src/index.ts',
   mode: 'production',
   module: {
     rules: [
@@ -15,8 +15,8 @@ const webpackConfig = {
         exclude: '/node_modules/'
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.s?[c|a]ss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
     ]
   },

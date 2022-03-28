@@ -1,3 +1,0 @@
-class BasicComponent {}
-
-export { BasicComponent };
