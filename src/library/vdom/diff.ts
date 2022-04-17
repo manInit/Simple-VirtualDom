@@ -43,7 +43,7 @@ const diffAttrs = (oldAttrs: Attributes, newAttrs: Attributes) => {
   }
 }
 
-const diffChildren = (oldChildren: Array<VirtualElem | BasicComponent>, newChildren: Array<VirtualElem | BasicComponent>) => {
+const diffChildren = (oldChildren: Array<VirtualElem | BasicComponent | string>, newChildren: Array<VirtualElem | BasicComponent | string>) => {
   const childPatches: Array<(node: HTMLElement) => HTMLElement | void> = []
 
   for (const [index, child] of oldChildren.entries()) 
@@ -69,7 +69,7 @@ const diffChildren = (oldChildren: Array<VirtualElem | BasicComponent>, newChild
   }
 }
 
-const diff = (oldVTree: BasicComponent | VirtualElem, newVTree?: BasicComponent | VirtualElem) => {
+const diff = (oldVTree: BasicComponent | VirtualElem | string, newVTree?: BasicComponent | VirtualElem | string) => {
   if (isBasicComponent(oldVTree)) oldVTree = oldVTree.getVEl()
   if (isBasicComponent(newVTree)) newVTree = newVTree.getVEl()
 
@@ -89,7 +89,7 @@ const diff = (oldVTree: BasicComponent | VirtualElem, newVTree?: BasicComponent 
     } else {
       return (node: HTMLElement): HTMLElement => node
     }
-  }
+  }  
 
   if (oldVTree.tagName !== newVTree.tagName) {
     return (node: HTMLElement): HTMLElement | Text => {

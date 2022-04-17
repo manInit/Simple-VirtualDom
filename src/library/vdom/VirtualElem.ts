@@ -4,7 +4,7 @@ import { BasicComponent } from './BasicComponent'
 interface VirtualElem {
   tagName: string
   attrs: Attributes
-  children: Array<VirtualElem | BasicComponent>
+  children: Array<VirtualElem | BasicComponent | string>
 }
 
 export { VirtualElem }

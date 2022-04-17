@@ -3,7 +3,7 @@ import { VirtualElem } from './VirtualElem'
 
 interface ExtraArguments {
   attrs: Record<string, string | EventListenerOrEventListenerObject>, 
-  children: Array<VirtualElem | BasicComponent>
+  children: Array<VirtualElem | BasicComponent | string>
 }
 
 const createElement = (tagName: string, extra: ExtraArguments = { attrs: {}, children: [] }) => {
