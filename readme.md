@@ -2,7 +2,7 @@
 
 ## Features
 
-We can create two type Virtual dom elements, with state and without state. 
+We can create two type Virtual dom elements, with state and without state.__ 
 And use client side routing
 
 ### Virtual elem
@@ -22,7 +22,7 @@ const btnControl = (
 ```
 
 ### Component with state
-Anb Components which have state and automatically rerender when state updated.
+Anb Components which have state and automatically rerender when state updated.__
 Bloew you can see example counter component
 ```ts 
 import { BasicComponent, VirtualElem, createElement } from '../../library/vdom/index'
@@ -67,7 +67,7 @@ Router.setRoutes({
   '/counter': new CounterComponent()
 })
 ```
-But server should send your root html and js on every non-api query.
+But server should send your root html and js on every non-api query.__
 Simple example on .htaccess file
 ```
 RewriteEngine on
@@ -77,8 +77,8 @@ RewriteRule ^(.*)$ /index.html [NC,L,QSA]
 ```
 
 ### Examples 
-For example i realisation two components on two separe routes.
-It's slider from Genshin Impact site, and simple counter
-You can try it here -> https://vdom.maninit.ru/
+For example i realisation two components on two separe routes.__
+It's slider from Genshin Impact site, and simple counter__
+You can try it here -> https://vdom.maninit.ru/__
 And you can check code in this repository in components folder
 
