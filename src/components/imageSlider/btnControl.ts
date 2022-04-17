@@ -1,5 +1,4 @@
-import { createElement } from '../../library/vdom/index'
-import { VirtualElem } from '../../library/vdom/VirtualElem';
+import { createElement, VirtualElem } from '../../library/vdom/index'
 
 const btnControl = (
   handlerClick: EventListenerOrEventListenerObject, 
